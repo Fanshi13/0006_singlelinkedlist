@@ -54,7 +54,7 @@ public:
             current = current->next;
         }
 
-        nodeBar->next = current;
+        nodeBaru->next = current;
         previous->next = nodeBaru;
     }
     bool listEmpty()
@@ -173,4 +173,14 @@ int main()
                 cout << endl;
             }
         }
+        break;
+        case '5':
+            break;
+        default:
+            cout << "Pilihan salah!" << endl;
+            break;
         }
+    } while (ch != '5');
+
+    return 0;
+}
