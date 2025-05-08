@@ -116,4 +116,61 @@ int main()
     LinkedList mhs;
     int nim;
     char ch;
-}
+
+    do
+    {
+        cout << endl;
+        cout << "Menu" << endl;
+        cout << "1. Menambahkan data kedalam list" << endl;
+        cout << "2. Menghapus data dari dalam list" << endl;
+        cout << "3. Menampilkan semua data dalam list" << endl;
+        cout << "4. Mencari data dalam list" << endl;
+        cout << "5. Keluar" << endl;
+        cout << "Masukkan pilihan (1-5): ";
+        cin >> ch;
+
+        switch (ch)
+        {
+        case '1':
+            mhs.addNode();
+            break;
+        case '2':
+            if (mhs.listEmpty())
+            {
+                cout << "\nList Kosong" << endl;
+                break;
+            }
+
+            cout << "\nMasukkan nomor mahasiswa yang akan dihapus: ";
+            cin >> nim;
+
+            if (mhs.delNode(nim) == false)
+                cout << "Data tidak ditemukan" << endl;
+            else
+                cout << "Data dengan nomor mahasiswa " << nim << " berhasil dihapus " << endl;
+            break;
+        case '3':
+            mhs.traverse();
+            break;
+        case '4':
+        {
+            if (mhs.listEmpty() == true)
+            {
+                cout << "\nList Kosong\n";
+                break;
+            }
+
+            Node *previous, *current;
+            cout << "\nMasukkan nomor mahasiswa yang dicari: ";
+            cin >> nim;
+
+            if (mhs.Search(nim, &previous, &current) == false)
+                cout << "\nData tidak ditemukan" << endl;
+            else
+            {
+                cout << "\nData ditemukan" << endl;
+                cout << "\nNIM Mahasiswa: " << current->noMhs << endl;
+                cout << endl;
+            }
+        }
+        }
